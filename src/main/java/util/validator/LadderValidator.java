@@ -13,13 +13,13 @@ public class LadderValidator {
         }
     }
 
-    public static void checkRoundNumber(String input) {
-        if (!isRightRoundNumber(input)) {
+    public static void checkLadderNumberStandard(String input) {
+        if (!isRightLadderNumber(input)) {
             throw new IllegalArgumentException(INPUT_LADDER_NUMBER.message);
         }
     }
 
-    private static boolean isRightRoundNumber(String input) {
+    private static boolean isRightLadderNumber(String input) {
         return Pattern.matches("^[1-9]\\d*$", input);
     }
 }

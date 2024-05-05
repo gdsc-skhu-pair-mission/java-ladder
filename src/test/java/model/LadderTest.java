@@ -26,7 +26,7 @@ public class LadderTest {
     @DisplayName("입력된 숫자가 조건에 맞지 않는 예외 처리 테스트")
     void should_ThrowException_When_IsLadderNumberStandard(String input) {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
-            LadderValidator.checkRoundNumber(input);
+            LadderValidator.checkLadderNumberStandard(input);
         });
         Assertions.assertEquals(INPUT_LADDER_NUMBER.message, exception.getMessage());
     }
