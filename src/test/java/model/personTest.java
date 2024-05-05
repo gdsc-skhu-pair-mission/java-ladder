@@ -1,6 +1,6 @@
 package model;
 
-import static util.ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT;
+import static util.ErrorMessage.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -17,4 +17,33 @@ class personTest {
         });
         Assertions.assertEquals(INPUT_PERSON_NAME_IS_INCORRECT.message, exception.getMessage());
     }
+
+    @Test
+    @DisplayName("사람 이름 공백일 때 예외 처리 테스트")
+    void should_ThrowException_When_IsCarNameEmptyAndBlank() {
+        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            PersonValidator.checkSpace(" ");
+        });
+        Assertions.assertEquals(INPUT_PERSON_NAME_BLANK.message, exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("사람 이름 null일 때 예외 처리 테스트")
+    void should_ThrowException_When_IsCarNameNull() {
+        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            PersonValidator.checkEmpty(null);
+        });
+        Assertions.assertEquals(INPUT_STRING_NOT_NULL.message, exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("사람 이름 겹칠 때 예외 처리 테스트")
+    void should_ThrowException_When_IsPersonNameDuplicate() {
+        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            PersonValidator.checkDuplicate("소정,소정");
+        });
+        Assertions.assertEquals(INPUT_STRING_DUPLICATE.message, exception.getMessage());
+    }
+
+
 }
