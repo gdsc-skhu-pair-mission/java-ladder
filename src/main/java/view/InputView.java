@@ -1,5 +1,7 @@
 package view;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
@@ -9,6 +11,7 @@ public class InputView {
     public String getName() {
         return scanner.nextLine();
     }
+
 
     // 사다리 높이 입력받기
     public String ladderHeight() {
