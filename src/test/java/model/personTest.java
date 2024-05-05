@@ -1,8 +1,11 @@
 package model;
 
+import static util.ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import util.validator.PersonValidator;
 
 class personTest {
 
