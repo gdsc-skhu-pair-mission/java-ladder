@@ -22,7 +22,7 @@ public class PersonValidator {
 
     public static void checkSpace(String input) {
         if (isSpace(input)) {
-            throw new IllegalArgumentException(INPUT_PERSON_NAME_BLANK.message);
+            throw new IllegalArgumentException(INPUT_STRING_BLANK.message);
         }
     }
 

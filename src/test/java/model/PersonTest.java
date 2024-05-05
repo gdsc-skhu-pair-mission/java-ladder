@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import util.validator.PersonValidator;
 
-class personTest {
+class PersonTest {
 
     @Test
     @DisplayName("사람 이름 5글자 이상일 때 예외 처리 테스트")
@@ -20,16 +20,16 @@ class personTest {
 
     @Test
     @DisplayName("사람 이름 공백일 때 예외 처리 테스트")
-    void should_ThrowException_When_IsCarNameEmptyAndBlank() {
+    void should_ThrowException_When_IsPersonNameEmptyAndBlank() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             PersonValidator.checkSpace(" ");
         });
-        Assertions.assertEquals(INPUT_PERSON_NAME_BLANK.message, exception.getMessage());
+        Assertions.assertEquals(INPUT_STRING_BLANK.message, exception.getMessage());
     }
 
     @Test
     @DisplayName("사람 이름 null일 때 예외 처리 테스트")
-    void should_ThrowException_When_IsCarNameNull() {
+    void should_ThrowException_When_IsPersonNameNull() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             PersonValidator.checkEmpty(null);
         });
