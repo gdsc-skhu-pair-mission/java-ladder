@@ -3,9 +3,9 @@ package model;
 public class Player {
     private static final int MAXIMUM_ALLOWED_LENGTH = 5;
 
-    private String name;
+    private final String name;
 
-    public Player(String name) {
+    protected Player(String name) {
         checkNameIsNotNull(name);
         checkNameIsNotEmpty(name);
         checkNameLength(name);
@@ -13,6 +13,10 @@ public class Player {
         checkNameIsNotKorean(name);
         checkNameIsNotSpecialCharacter(name);
         this.name = name;
+    }
+
+    protected String getName() {
+        return name;
     }
 
     private void checkNameIsNotNull(String name) {
@@ -50,5 +54,4 @@ public class Player {
             throw new IllegalArgumentException("참여자 이름에 특수문자가 포함될 수 없습니다.");
         }
     }
-
 }
