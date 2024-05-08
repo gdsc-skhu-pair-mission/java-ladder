@@ -24,4 +24,9 @@ public class ResultView {
 
         System.out.println(trimmedStr);
     }
+
+    public void printLine(List<Boolean> lines) {
+        System.out.println(lines);
+    }
+
 }

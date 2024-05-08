@@ -23,6 +23,7 @@ public class Line {
         }
     }
 
+
     public List<Boolean> createRandomColumn() {
         List<Boolean> columns = new ArrayList<>();
         for (int i = 0; i < personCount-1; i++){
@@ -35,4 +36,5 @@ public class Line {
         Random random = new Random();
         return random.nextBoolean();
     }
+
 }
