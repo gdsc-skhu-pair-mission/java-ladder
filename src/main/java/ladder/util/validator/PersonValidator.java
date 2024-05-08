@@ -1,6 +1,6 @@
-package util.validator;
+package ladder.util.validator;
 
-import static util.ErrorMessage.*;
+import static ladder.util.ErrorMessage.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

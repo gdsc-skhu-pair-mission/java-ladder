@@ -1,11 +1,11 @@
 package model;
 
-import static util.ErrorMessage.*;
+import static ladder.util.ErrorMessage.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import util.validator.PersonValidator;
+import ladder.util.validator.PersonValidator;
 
 class PersonTest {
 

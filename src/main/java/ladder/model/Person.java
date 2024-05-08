@@ -1,6 +1,6 @@
-package model;
+package ladder.model;
 
-import util.validator.PersonValidator;
+import ladder.util.validator.PersonValidator;
 
 public class Person {
 

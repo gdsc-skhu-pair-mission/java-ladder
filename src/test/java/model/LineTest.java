@@ -1,5 +1,6 @@
 package model;
 
+import ladder.model.Line;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

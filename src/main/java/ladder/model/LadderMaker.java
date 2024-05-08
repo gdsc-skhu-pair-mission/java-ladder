@@ -1,6 +1,6 @@
-package model;
+package ladder.model;
 
-import util.validator.LadderValidator;
+import ladder.util.validator.LadderValidator;
 
 public class LadderMaker {
 

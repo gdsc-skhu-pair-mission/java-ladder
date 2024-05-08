@@ -1,9 +1,10 @@
-package model;
+package ladder.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import util.validator.PersonValidator;
+
+import ladder.util.validator.PersonValidator;
 
 public class PersonList {
 
