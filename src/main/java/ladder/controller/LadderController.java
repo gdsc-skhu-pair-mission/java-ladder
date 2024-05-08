@@ -42,5 +42,4 @@ public class LadderController {
     private String getFirstManipulationName() {
         return personList.getManipulationPeopleNames().get(0);
     }
-
 }

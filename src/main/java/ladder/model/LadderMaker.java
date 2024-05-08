@@ -25,5 +25,4 @@ public class LadderMaker {
         line.rearrange(lines);
         return lines;
     }
-
 }

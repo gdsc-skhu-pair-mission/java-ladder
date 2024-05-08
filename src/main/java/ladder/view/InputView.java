@@ -3,6 +3,7 @@ package ladder.view;
 import java.util.Scanner;
 
 public class InputView {
+
     Scanner scanner = new Scanner(System.in);
 
     public String inputName() {
@@ -12,5 +13,4 @@ public class InputView {
     public String inputLadderHeight() {
         return scanner.nextLine();
     }
-
 }

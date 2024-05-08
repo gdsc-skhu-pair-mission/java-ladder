@@ -1,6 +1,7 @@
 package ladder.util;
 
 public enum ErrorMessage {
+
     INPUT_STRING_DUPLICATE("입력 값이 중복되었습니다."),
     INPUT_STRING_NOT_NULL(" null이 될 수 없습니다."),
     INPUT_PERSON_NAME_IS_INCORRECT("입력한 사람 이름이 올바르지 않습니다."),
@@ -11,5 +12,4 @@ public enum ErrorMessage {
     ErrorMessage(String message) {
         this.message = message;
     }
-
 }

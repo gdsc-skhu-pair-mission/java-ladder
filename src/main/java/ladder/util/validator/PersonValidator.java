@@ -56,5 +56,4 @@ public class PersonValidator {
 
         return allPersonNames.size() != set.size();
     }
-
 }

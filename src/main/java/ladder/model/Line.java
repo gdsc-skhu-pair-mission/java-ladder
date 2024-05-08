@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Line {
+
     private int personCount;
     private List<Boolean> points;
 
@@ -22,7 +23,6 @@ public class Line {
             previousColumn = currentColum;
         }
     }
-
 
     public List<Boolean> createRandomColumn() {
         List<Boolean> columns = new ArrayList<>();

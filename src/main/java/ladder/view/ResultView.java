@@ -3,6 +3,7 @@ package ladder.view;
 import java.util.List;
 
 public class ResultView {
+
     private static final int MAX_NAME_DIGIT = 5;
     private static final int SPACE_REDUCTION = 2;
 
@@ -30,12 +31,13 @@ public class ResultView {
     public void printLine(String firstName, List<Boolean> lines) {
         StringBuilder lineBuilder = new StringBuilder();
         lineBuilder.append(firstOnlyVerticalLine(firstName));
-        for(boolean xx: lines){
-            if(xx == true) {
+
+        for(boolean elementLine: lines){
+            if(elementLine == true) {
                 lineBuilder.append(containPrintHorizontalLine());
             }
 
-            if(xx == false) {
+            if(elementLine == false) {
                 lineBuilder.append(onlyVerticalLine());
             }
         }
@@ -61,5 +63,4 @@ public class ResultView {
     private String containPrintHorizontalLine() {
         return "-----|";
     }
-
 }
