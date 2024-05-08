@@ -12,7 +12,6 @@ public class InputView {
         return scanner.nextLine();
     }
 
-
     // 사다리 높이 입력받기
     public String ladderHeight() {
         return scanner.nextLine();

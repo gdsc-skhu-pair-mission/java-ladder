@@ -22,7 +22,7 @@ public class Line {
             previousColumn = currentColum;
         }
     }
-f
+
     public List<Boolean> createRandomColumn() {
         List<Boolean> columns = new ArrayList<>();
         for (int i = 0; i < personCount-1; i++){
