@@ -1,5 +1,6 @@
 package ladder.controller;
 
+import java.util.List;
 import ladder.model.LadderMaker;
 import ladder.model.PersonList;
 import ladder.view.*;
@@ -30,9 +31,16 @@ public class LadderController {
         resultView.printPeople(personList.getManipulationPeopleNames());
 
         for (int i = 0; i < ladderMaker.getLadderHeight(); i++) {
-            resultView.printLine(ladderMaker.makeLadder(personList.getPeople().size()));
+            resultView.printLine(getFirstManipulationName(), getPeopleSize());
         }
     }
 
-}
+    private List<Boolean> getPeopleSize(){
+        return ladderMaker.makeLadder(personList.getPeople().size());
+    }
 
+    private String getFirstManipulationName() {
+        return personList.getManipulationPeopleNames().get(0);
+    }
+
+}
