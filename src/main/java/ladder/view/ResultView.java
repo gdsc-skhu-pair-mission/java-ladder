@@ -3,6 +3,8 @@ package ladder.view;
 import java.util.List;
 
 public class ResultView {
+    private static final int MAX_NAME_DIGIT = 5;
+    private static final int SPACE_REDUCTION = 2;
 
     public void startMessage() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
@@ -25,8 +27,39 @@ public class ResultView {
         System.out.println(trimmedStr);
     }
 
-    public void printLine(List<Boolean> lines) {
-        System.out.println(lines);
+    public void printLine(String firstName, List<Boolean> lines) {
+        StringBuilder lineBuilder = new StringBuilder();
+        lineBuilder.append(firstOnlyVerticalLine(firstName));
+        for(boolean xx: lines){
+            if(xx == true) {
+                lineBuilder.append(containPrintHorizontalLine());
+            }
+
+            if(xx == false) {
+                lineBuilder.append(onlyVerticalLine());
+            }
+        }
+        System.out.println(lineBuilder.toString());
+    }
+
+    private String firstOnlyVerticalLine(String firstName) {
+        StringBuilder firstNameBuilder = new StringBuilder();
+
+        if (firstName.length() != MAX_NAME_DIGIT) {
+            for (int i = 0; i < firstName.length()-SPACE_REDUCTION; i++) {
+                firstNameBuilder.append(" ");
+            }
+        }
+        firstNameBuilder.append("|");
+        return firstNameBuilder.toString();
+    }
+
+    private String onlyVerticalLine() {
+        return "     |";
+    }
+
+    private String containPrintHorizontalLine() {
+        return "-----|";
     }
 
 }
