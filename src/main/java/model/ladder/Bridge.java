@@ -1,4 +1,4 @@
-package model;
+package model.ladder;
 
 public enum Bridge {
     EMPTY, EXIST;

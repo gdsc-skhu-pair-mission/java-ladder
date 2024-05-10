@@ -1,5 +1,8 @@
 package model;
 
+import model.ladder.Ladder;
+import model.ladder.strategy.GenerateStrategy;
+import model.ladder.strategy.RandomGenerateStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

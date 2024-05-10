@@ -1,4 +1,4 @@
-package model;
+package model.players;
 
 import java.util.List;
 import java.util.stream.Collectors;

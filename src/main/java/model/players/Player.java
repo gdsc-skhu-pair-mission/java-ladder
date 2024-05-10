@@ -1,11 +1,11 @@
-package model;
+package model.players;
 
 public class Player {
     private static final int MAXIMUM_ALLOWED_LENGTH = 5;
 
     private final String name;
 
-    protected Player(String name) {
+    public Player(String name) {
         checkNameIsNotNull(name);
         checkNameIsNotEmpty(name);
         checkNameLength(name);

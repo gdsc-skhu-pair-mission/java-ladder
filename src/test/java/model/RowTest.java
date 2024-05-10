@@ -1,12 +1,16 @@
 package model;
 
-import static model.Bridge.EMPTY;
-import static model.Bridge.EXIST;
+import static model.ladder.Bridge.EMPTY;
+import static model.ladder.Bridge.EXIST;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
+
+import model.ladder.Bridge;
+import model.ladder.Row;
+import model.ladder.strategy.RandomGenerateStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

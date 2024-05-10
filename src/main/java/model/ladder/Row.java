@@ -1,4 +1,6 @@
-package model;
+package model.ladder;
+
+import model.ladder.strategy.GenerateStrategy;
 
 import java.util.ArrayList;
 import java.util.List;

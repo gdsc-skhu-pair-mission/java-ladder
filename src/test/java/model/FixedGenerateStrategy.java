@@ -1,5 +1,7 @@
 package model;
 
+import model.ladder.strategy.GenerateStrategy;
+
 import java.util.List;
 
 public class FixedGenerateStrategy implements GenerateStrategy {
