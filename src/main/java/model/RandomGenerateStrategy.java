@@ -4,18 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RandomGenerateStrategy implements GenerateStrategy {
-    private static final int BRIDGE_NOT_CONNECTED = 0;
+    private static final int BRIDGE_UNCONNECTED = 0;
 
     @Override
-    public List<Boolean> generate(int countOfPeople) {
-        List<Boolean> bridges = new ArrayList<>();
+    public List<Boolean> generate(int countOfPlayer) {
+        if (countOfPlayer < 2) {
+            throw new IllegalArgumentException("플레이어는 최소 2명 이상이어야 합니다.");
+        }
+        int countOfBridge = countOfPlayer - 1;
 
-        for (int i = 0; i < countOfPeople - 1; i++) {
+        List<Boolean> bridges = new ArrayList<>();
+        for (int i = 0; i < countOfBridge; i++) {
             if (wasPreviousBridgeConnected(bridges, i)) {
                 bridges.add(false);
                 continue;
             }
-            bridges.add(decideBridgeConnectionByRandomNumber());
+            bridges.add(decideBridgeConnection());
         }
         return bridges;
     }
@@ -27,7 +31,7 @@ public class RandomGenerateStrategy implements GenerateStrategy {
         return bridges.get(currentIndex - 1);
     }
 
-    private boolean decideBridgeConnectionByRandomNumber() {
-        return (int) (Math.random() * 2) != BRIDGE_NOT_CONNECTED;
+    private boolean decideBridgeConnection() {
+        return (int) (Math.random() * 2) != BRIDGE_UNCONNECTED;
     }
 }

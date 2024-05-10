@@ -12,30 +12,31 @@ import org.junit.jupiter.api.Test;
 
 class RowTest {
     @Test
-    @DisplayName("행 생성이 올바르게 되는지 확인1")
-    void should_CreateCorrectSizeRow1() {
+    @DisplayName("정상적으로 행 객체 생성")
+    void should_CreateRowObjectSuccessfully() {
         // given
-        FixedGenerateStrategy fixedGenerateStrategy = new FixedGenerateStrategy(List.of(true, false, true));
-        Row row = new Row(4, fixedGenerateStrategy);
-        List<Bridge> expectedResult = List.of(EXIST, EMPTY, EXIST);
+        RandomGenerateStrategy randomGenerateStrategy = new RandomGenerateStrategy();
+        int countOfPlayer = 4;
+        int expectedResult = countOfPlayer - 1;
 
         // when
+        Row row = new Row(countOfPlayer, randomGenerateStrategy);
         List<Bridge> actualResult = row.getBridges();
 
         // then
         assertNotNull(actualResult);
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult.size());
     }
 
     @Test
-    @DisplayName("행 생성이 올바르게 되는지 확인2")
-    void should_CreateCorrectSizeRow2() {
+    @DisplayName("정해진 다리 생성 전략에 따라 행 객체 생성")
+    void should_CreateCorrectSizeRow() {
         // given
-        FixedGenerateStrategy fixedGenerateStrategy = new FixedGenerateStrategy(List.of(false, true, false));
-        Row row = new Row(4, fixedGenerateStrategy);
-        List<Bridge> expectedResult = List.of(EMPTY, EXIST, EMPTY);
+        FixedGenerateStrategy fixedGenerateStrategy = new FixedGenerateStrategy(List.of(true, false, true));
+        List<Bridge> expectedResult = List.of(EXIST, EMPTY, EXIST);
 
         // when
+        Row row = new Row(4, fixedGenerateStrategy);
         List<Bridge> actualResult = row.getBridges();
 
         // then

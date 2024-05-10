@@ -7,13 +7,13 @@ public class Row {
     private final GenerateStrategy generateStrategy;
     private final List<Bridge> bridges = new ArrayList<>();
 
-    public Row(int countOfPerson, GenerateStrategy generateStrategy) {
+    public Row(int countOfPlayer, GenerateStrategy generateStrategy) {
         this.generateStrategy = generateStrategy;
-        generateRow(countOfPerson);
+        generateRow(countOfPlayer);
     }
 
-    private void generateRow(int countOfPerson) {
-        generateStrategy.generate(countOfPerson)
+    private void generateRow(int countOfPlayer) {
+        generateStrategy.generate(countOfPlayer)
                 .forEach(bridge -> bridges.add(Bridge.of(bridge)));
     }
 
