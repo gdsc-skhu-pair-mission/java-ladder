@@ -9,4 +9,8 @@ public enum Bridge {
         }
         return EMPTY;
     }
+
+    public boolean isExist() {
+        return this == EXIST;
+    }
 }

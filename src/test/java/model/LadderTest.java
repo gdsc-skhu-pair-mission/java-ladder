@@ -39,4 +39,20 @@ class LadderTest {
         assertNotNull(ladder);
         assertEquals(countOfHeight, ladder.getRowSize());
     }
+
+    @Test
+    @DisplayName("정상적으로 사다리 정보 반환")
+    void should_ReturnLadderInformationSuccessfully() {
+        // given
+        GenerateStrategy generateStrategy = new RandomGenerateStrategy();
+        int countOfPlayer = 4;
+        int countOfHeight = 5;
+
+        // when
+        Ladder ladder = new Ladder(generateStrategy);
+        ladder.init(countOfPlayer, countOfHeight);
+
+        // then
+        assertNotNull(ladder.getLadderInformation());
+    }
 }

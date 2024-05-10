@@ -22,4 +22,12 @@ public class Ladder {
     public int getRowSize() {
         return rows.size();
     }
+
+    public List<List<Boolean>> getLadderInformation() {
+        return rows.stream()
+                .map(row -> row.getBridges().stream()
+                        .map(Bridge::isExist)
+                        .toList())
+                .toList();
+    }
 }
