@@ -2,6 +2,7 @@ package ladder.controller;
 
 import java.util.List;
 import ladder.model.LadderMaker;
+import ladder.model.ManipulationPeople;
 import ladder.model.PersonList;
 import ladder.view.*;
 
@@ -9,8 +10,9 @@ public class LadderController {
 
     private final ResultView resultView;
     private final InputView inputView;
-    private PersonList personList;
+    private ManipulationPeople manipulationPeople;
     private LadderMaker ladderMaker;
+
 
     public LadderController(InputView inputview, ResultView resultView){
         this.inputView = inputview;
@@ -19,16 +21,13 @@ public class LadderController {
 
     public void start() {
         resultView.startMessage();
-        this.personList = new PersonList(inputView.inputName());
-
-        personList.personNameInput();
-        personList.manipulateNames();
+        this.manipulationPeople = new ManipulationPeople(new PersonList(inputView.inputName()).getPeople());
 
         resultView.ladderHeightMessage();
         this.ladderMaker = new LadderMaker(inputView.inputLadderHeight());
 
         resultView.resultMessage();
-        resultView.printPeople(personList.getManipulationPeopleNames());
+        resultView.printPeople(manipulationPeople.getManipulationPeopleNames());
 
         for (int i = 0; i < ladderMaker.getLadderHeight(); i++) {
             resultView.printLine(getFirstManipulationName(), getPeopleSize());
@@ -36,10 +35,10 @@ public class LadderController {
     }
 
     private List<Boolean> getPeopleSize(){
-        return ladderMaker.makeLadder(personList.getPeople().size());
+        return ladderMaker.makeLadder(manipulationPeople.getManipulationPeopleNames().size());
     }
 
     private String getFirstManipulationName() {
-        return personList.getManipulationPeopleNames().get(0);
+        return manipulationPeople.getManipulationPeopleNames().get(0);
     }
 }

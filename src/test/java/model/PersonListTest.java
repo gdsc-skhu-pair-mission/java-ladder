@@ -2,6 +2,7 @@ package model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import ladder.model.ManipulationPeople;
 import ladder.model.PersonList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,10 +14,10 @@ class PersonListTest {
     void should_SplitPersonAndMakePersonList_When_InputName() {
         // given
         String peopleName = "소정,예은,GDSC";
-        PersonList personList = new PersonList(peopleName);
+
 
         // when
-        personList.personNameInput();
+        PersonList personList = new PersonList(peopleName);
 
         // then
         assertThat(personList.getPeople())
@@ -30,13 +31,12 @@ class PersonListTest {
         // given
         String peopleName = "gdsc,소정,예은,water,a";
         PersonList personList = new PersonList(peopleName);
-        personList.personNameInput();
 
         // when
-        personList.manipulateNames();
+        ManipulationPeople manipulationPeople = new ManipulationPeople(personList.getPeople());
 
         // then
-        assertThat(personList.getManipulationPeopleNames())
+        assertThat(manipulationPeople.getManipulationPeopleNames())
                 .contains(" gdsc ", "   소정 ", "   예은 ", " water", "    a ");
     }
 }
