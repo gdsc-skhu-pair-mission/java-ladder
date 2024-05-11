@@ -7,19 +7,17 @@ public class ManipulationPeople {
 
     private static final int BLOCK_DIGIT = 6;
     private static final int MAX_NAME_DIGIT = 5;
-    private final List<Person> personList;
     private final List<String> manipulationPeopleNames = new ArrayList<>();
 
     public ManipulationPeople(List<Person> personList) {
-        this.personList = personList;
-        manipulateNames();
+        manipulateNames(personList);
     }
 
     public List<String> getManipulationPeopleNames() {
         return manipulationPeopleNames;
     }
 
-    private void manipulateNames() {
+    private void manipulateNames(List<Person> personList) {
         for (Person person : personList) {
             manipulationPeopleNames.add(manipulateNameBlank(person.getName()));
         }
