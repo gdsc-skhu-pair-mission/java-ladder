@@ -1,5 +1,6 @@
 package ladder.model;
 
+import java.util.Random;
 import ladder.util.validator.LadderValidator;
 
 import java.util.List;
@@ -20,9 +21,8 @@ public class LadderMaker {
     }
 
     public List<Boolean> makeLadder(int personCount) {
-        Line line = new Line(personCount);
-        List<Boolean> lines = line.createRandomColumn();
-        line.rearrange(lines);
-        return lines;
+        RandomBoolean randomBoolean = new RandomBoolean();
+        Line lines = new Line(randomBoolean.createRandomColumn(personCount));
+        return lines.getPoints();
     }
 }

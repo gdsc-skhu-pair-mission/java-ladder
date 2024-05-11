@@ -6,16 +6,22 @@ import java.util.Random;
 
 public class Line {
 
-    private int personCount;
+    private RandomBoolean randomBoolean = new RandomBoolean();
+
     private List<Boolean> points;
 
-    public Line (int personCount) {
-        this.personCount = personCount;
+    public Line (List<Boolean> randomColumn) {
+        this.points = randomColumn;
+        rearrange(points);
     }
 
-    public void rearrange(List<Boolean> columns) {
+    public List<Boolean> getPoints() {
+        return points;
+    }
+
+    private void rearrange(List<Boolean> columns) {
         boolean previousColumn = false;
-        for (int i = 0; i < personCount-1; i++) {
+        for (int i = 0; i < columns.size(); i++) {
             boolean currentColum = columns.get(i);
             if (previousColumn == currentColum){
                 columns.set(i, false);
@@ -23,18 +29,4 @@ public class Line {
             previousColumn = currentColum;
         }
     }
-
-    public List<Boolean> createRandomColumn() {
-        List<Boolean> columns = new ArrayList<>();
-        for (int i = 0; i < personCount-1; i++){
-            columns.add(getRandomBoolean());
-        }
-        return columns;
-    }
-
-    private boolean getRandomBoolean() {
-        Random random = new Random();
-        return random.nextBoolean();
-    }
-
 }

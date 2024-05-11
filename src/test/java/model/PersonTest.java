@@ -44,6 +44,4 @@ class PersonTest {
         });
         Assertions.assertEquals(INPUT_STRING_DUPLICATE.message, exception.getMessage());
     }
-
-
 }

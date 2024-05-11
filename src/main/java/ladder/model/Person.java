@@ -10,7 +10,6 @@ public class Person {
         PersonValidator.checkEmpty(name);
         PersonValidator.checkOverRange(name);
         PersonValidator.checkSpace(name);
-
         this.name = name;
     }
 

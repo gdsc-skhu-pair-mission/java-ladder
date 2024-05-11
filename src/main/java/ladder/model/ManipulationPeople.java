@@ -39,7 +39,6 @@ public class ManipulationPeople {
         if (name.length() != MAX_NAME_DIGIT) {
             manipultionName.append(" ");
         }
-
         return manipultionName.toString();
     }
 }
