@@ -4,7 +4,8 @@ import java.util.List;
 import ladder.model.LadderMaker;
 import ladder.model.ManipulationPeople;
 import ladder.model.PersonList;
-import ladder.view.*;
+import ladder.view.InputView;
+import ladder.view.ResultView;
 
 public class LadderController {
 
@@ -14,7 +15,7 @@ public class LadderController {
     private LadderMaker ladderMaker;
 
 
-    public LadderController(InputView inputview, ResultView resultView){
+    public LadderController(InputView inputview, ResultView resultView) {
         this.inputView = inputview;
         this.resultView = resultView;
     }
@@ -34,7 +35,7 @@ public class LadderController {
         }
     }
 
-    private List<Boolean> getPeopleSize(){
+    private List<Boolean> getPeopleSize() {
         return ladderMaker.makeLadder(manipulationPeople.getManipulationPeopleNames().size());
     }
 

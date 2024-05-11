@@ -1,11 +1,14 @@
 package model;
 
-import static ladder.util.ErrorMessage.*;
+import static ladder.util.ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT;
+import static ladder.util.ErrorMessage.INPUT_STRING_BLANK;
+import static ladder.util.ErrorMessage.INPUT_STRING_DUPLICATE;
+import static ladder.util.ErrorMessage.INPUT_STRING_NOT_NULL;
 
+import ladder.util.validator.PersonValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ladder.util.validator.PersonValidator;
 
 class PersonTest {
 

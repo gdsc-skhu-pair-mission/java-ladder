@@ -1,8 +1,7 @@
 package ladder.util.validator;
 
-import ladder.util.ErrorMessage;
-
 import java.util.regex.Pattern;
+import ladder.util.ErrorMessage;
 
 public class LadderValidator {
 

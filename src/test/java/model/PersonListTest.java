@@ -15,7 +15,6 @@ class PersonListTest {
         // given
         String peopleName = "소정,예은,GDSC";
 
-
         // when
         PersonList personList = new PersonList(peopleName);
 

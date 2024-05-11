@@ -1,9 +1,7 @@
 package ladder.model;
 
-import java.util.Random;
-import ladder.util.validator.LadderValidator;
-
 import java.util.List;
+import ladder.util.validator.LadderValidator;
 
 public class LadderMaker {
 

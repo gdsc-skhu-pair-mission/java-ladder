@@ -1,13 +1,12 @@
 package model;
 
-import ladder.model.Line;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.Arrays;
 import java.util.List;
+import ladder.model.Line;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 class LineTest {
     @Test
@@ -18,7 +17,7 @@ class LineTest {
 
         // when
         Line line = new Line(points);
-        
+
         // then
         for (int i = 0; i < points.size() - 1; i++) {
             assertFalse(points.get(i) && points.get(i + 1)); // 연속된 true가 없어야 함
