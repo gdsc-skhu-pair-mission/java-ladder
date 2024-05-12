@@ -20,6 +20,10 @@ public class Players {
                 .collect(Collectors.toList());
     }
 
+    public int getPlayerCount() {
+        return players.size();
+    }
+
     public void validatePlayerCount(List<String> playerNames) {
         if (playerNames.size() < MINIMUM_PLAYER_COUNT) {
             throw new IllegalArgumentException("플레이어는 2명 이상이어야 합니다.");
