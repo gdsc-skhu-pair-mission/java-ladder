@@ -15,6 +15,4 @@ public class OutputViewTest {
         assertEquals(result, outputView.getClass(personnal));
     }
 
-    }
-
 }
