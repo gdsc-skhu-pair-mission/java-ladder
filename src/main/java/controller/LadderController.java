@@ -1,6 +1,7 @@
 package controller;
 
 import domain.Human;
+import domain.Humans;
 import domain.Ladder;
 import domain.Line;
 import view.InputView;
@@ -12,20 +13,21 @@ import java.util.List;
 public class LadderController {
     private final OutputView outputView;
     private final InputView inputView;
-    private List<Human> humans;
+    private final Humans humans;
     private final Ladder ladder;
 
     public LadderController(final OutputView outputView, final InputView inputView, final Ladder ladder) {
         this.outputView = outputView;
         this.inputView = inputView;
         this.ladder = ladder;
-        this.humans = new ArrayList<>();
+        this.humans = new Humans();
+
     }
 
     public void gameStart() {
         createHumans();
         createLadderHeight();
-        String[] names = humans.stream().map(Human::getName).toArray(String[]::new);
+        List<String> names = humans.getNames();
         outputView.printNames(names);
         List<List<Boolean>> lines = createLadderLines();
         outputView.printLadder(lines);
@@ -36,7 +38,7 @@ public class LadderController {
         outputView.printNames();
         String[] names = inputView.inputNames();
         for (String name : names) {
-            humans.add(new Human(name));
+            humans.addHuman(new Human(name));
         }
     }
 
@@ -47,9 +49,12 @@ public class LadderController {
 
     List<List<Boolean>> createLadderLines() {
         List<List<Boolean>> lines = new ArrayList<>();
-        for (int i = 0; i < ladder.getHeight(); i++) {
-            lines.add(new Line(humans.size()).getPoints());
+        int numPeople = humans.getHumans().size();
+        for (int i = 0; i < ladder.getHeight(); i++){
+            Line line = new Line(numPeople);
+            lines.add(line.getPoints());
         }
+
         return lines;
     }
 }
