@@ -3,17 +3,22 @@ package view;
 import java.util.Scanner;
 
 public class InputView {
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
 
-    public String[] inputName() {
-        String input = scanner.nextLine();
-        String []names = input.split(",");
-        return names;
-
+    public InputView() {
+        this.scanner = new Scanner(System.in);
     }
+
+    public String[] inputNames() {
+        String input = scanner.nextLine();
+        return input.split(",");
+    }
+
     public int inputHeight() {
-        int height = scanner.nextInt();
+        return scanner.nextInt();
+    }
+
+    public void closeScanner() {
         scanner.close();
-        return height;
     }
 }
