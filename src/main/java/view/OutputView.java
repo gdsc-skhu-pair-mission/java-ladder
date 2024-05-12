@@ -22,7 +22,7 @@ public class OutputView {
         for (String name : names) {
             System.out.print(name + SPACE);
         }
-        System.out.println();
+       // System.out.println();
     }
 
     public void printLadder(List<List<Boolean>> lines){
