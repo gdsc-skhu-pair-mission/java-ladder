@@ -1,6 +1,6 @@
 package domain;
 
-public class Ladder {
+public class Ladder{
     private int height;
 
     public Ladder(final int height) {
