@@ -10,4 +10,8 @@ public class Ladder {
     public int getHeight() {
         return height;
     }
+
+    public void setHeight(final int height) {
+        this.height = height;
+    }
 }
