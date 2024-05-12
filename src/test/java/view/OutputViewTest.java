@@ -7,12 +7,17 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class OutputViewTest {
     @Test
-    @DisplayName("사람 출력")
-    void 사람이름_출력하기(){
+    @DisplayName("사람 이름 출력")
+    void printPersonName(){
+        // given
         OutputView outputView = new OutputView();
-        String[] personnal = {"pobi", "honux", "crong", "jk"};
-        String result = "pobi honux crong jk ";
-        assertEquals(result, outputView.getClass(personnal));
+        List<String> names = Arrays.asList("pobi", "honux", "crong", "jk");
+
+        // when
+        outputView.printNames(names);
+
+        // then
+        assertEquals("pobi honux crong jk " , outContent.toString());
     }
 
 }
