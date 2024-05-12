@@ -69,7 +69,7 @@ public class Line {
         // 라인의 좌표 값에 선이 있는지 유무를 판단하는 로직 추가
     }
 
-    [...]
+//    [...]
 }
 ```
 - 위와 같이 Line 객체를 추가하면 List<List<Boolean>> 코드를 List<Line>과 같이 구현하는 것이 가능해 진다.
