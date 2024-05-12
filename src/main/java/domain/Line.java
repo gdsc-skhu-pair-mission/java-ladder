@@ -15,7 +15,6 @@ public class Line {
             boolean next = random.nextBoolean() && !previous;// 사다리 생성 로직
             points.add(next);
         }
-        points.add(false);
     }
 
     public List<Boolean> getPoints() {
