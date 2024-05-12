@@ -1,12 +1,14 @@
 package model;
 
+import util.RandomFootholdGenerator;
+
 public class Ladder {
     private final StringBuilder lines;
-    private Line line = new Line();
+    private Line line;
 
     public Ladder() {
         this.lines = new StringBuilder();
-        this.line = new Line();
+        this.line = new Line(new RandomFootholdGenerator());
     }
 
     public void makeLines(Height height, Players players) {

@@ -4,6 +4,7 @@ import model.Height;
 import model.Ladder;
 import model.Player;
 import model.Players;
+import util.RandomFootholdGenerator;
 import view.InputView;
 import view.OutputView;
 

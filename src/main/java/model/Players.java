@@ -23,5 +23,4 @@ public class Players {
                 .map(Player::new)
                 .toList();
     }
-
 }

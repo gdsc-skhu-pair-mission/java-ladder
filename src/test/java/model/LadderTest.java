@@ -3,6 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import util.TestFootholdGenerator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,7 +17,7 @@ class LadderTest {
 
     @BeforeEach
     void setUp() {
-        ladder = new Ladder();
+        Ladder ladder = new Ladder();
         players = new Players(Arrays.asList("a", "bb", "ccc", "dddd", "eeeee"));
         height = new Height("5");
     }

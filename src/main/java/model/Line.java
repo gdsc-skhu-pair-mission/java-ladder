@@ -1,5 +1,6 @@
 package model;
 
+import util.FootholdGenerator;
 import util.RandomFootholdGenerator;
 
 public class Line {
@@ -8,9 +9,11 @@ public class Line {
     private static final String BLANK = LadderSymbol.BLANK.getSymbol();
     private static final String BAR = LadderSymbol.BAR.getSymbol();
     private static final String FOOTHOLD = LadderSymbol.FOOTHOLD.getSymbol();
+    private final FootholdGenerator footholdGenerator;
 
-    public Line() {
+    public Line(FootholdGenerator footholdGenerator) {
         this.line = new StringBuilder();
+        this.footholdGenerator = footholdGenerator;
     }
 
     public void makeLine(Players players) {
@@ -48,7 +51,7 @@ public class Line {
     }
 
     private boolean tryAppendFootholdReturningSuccess(boolean hasPreviousFoothold) {
-        if (!hasPreviousFoothold && RandomFootholdGenerator.generate()) {
+        if (!hasPreviousFoothold && footholdGenerator.generate()) {
             currentLadderLine(FOOTHOLD);
 
             return true;

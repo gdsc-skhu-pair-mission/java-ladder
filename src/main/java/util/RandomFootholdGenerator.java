@@ -2,11 +2,12 @@ package util;
 
 import java.util.Random;
 
-public class RandomFootholdGenerator {
+public class RandomFootholdGenerator implements FootholdGenerator{
 
-    private static final Random random = new Random();
+    private static Random random = new Random();
 
-    public static boolean generate() {
+    @Override
+    public boolean generate() {
         return random.nextBoolean();
     }
 }
