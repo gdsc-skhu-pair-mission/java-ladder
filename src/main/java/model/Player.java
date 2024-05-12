@@ -1,4 +1,4 @@
-package domain;
+package model;
 
 public class Player {
     private final static int MAX_NAME_LENGTH = 5;
