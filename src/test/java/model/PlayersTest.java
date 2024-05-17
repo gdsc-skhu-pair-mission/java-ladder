@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PlayersTest {
     @Test
     @DisplayName("리스트를 사용해 정상적으로 Players 객체를 생성하고, 값이 같은지 확인")
-    void Players_Object_Create_Success_Test() {
+    void Players_Object_Create_Success() {
         // given
         List<String> playerNames = new ArrayList<>();
 

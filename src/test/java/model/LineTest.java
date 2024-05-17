@@ -42,7 +42,7 @@ public class LineTest {
 
     @Test
     @DisplayName("정상적으로 라인 객체 생성")
-    void Line_Object_Create_Success_Test() {
+    void Line_Object_Create_Success() {
 
         // given
         line = new Line(new RandomFootholdGenerator());

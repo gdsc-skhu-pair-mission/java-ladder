@@ -5,8 +5,6 @@ import java.util.List;
 public class OutputView {
     private final static int NAME_WIDTH = 5;
 
-
-
     public void printResultSentence(StringBuilder ladder, List<String> playerNames) {
         System.out.println("실행결과");
 

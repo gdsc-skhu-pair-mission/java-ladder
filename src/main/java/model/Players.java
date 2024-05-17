@@ -10,7 +10,7 @@ public class Players {
         this.players = makePlayers(playerNames);
     }
 
-    public int findNumberOfPlayers() {
+    public int getPlayerCount() {
         return this.players.size();
     }
 

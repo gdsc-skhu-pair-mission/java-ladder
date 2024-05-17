@@ -1,7 +1,6 @@
 package model;
 
 import util.FootholdGenerator;
-import util.RandomFootholdGenerator;
 
 public class Line {
     private final StringBuilder line;
@@ -20,17 +19,17 @@ public class Line {
         initializeLine();
 
         boolean previousWasFoothold = false;
-        int numOfPlayers = players.findNumberOfPlayers();
+        int numOfPlayers = players.getPlayerCount();
 
         for (int i = 0; i < numOfPlayers; i++) {
             currentLadderLine(BAR);
-            previousWasFoothold = tryAppendFootholdIfNotLastPlayer(i, numOfPlayers, previousWasFoothold);
+            previousWasFoothold = AppendFootholdIfNotLastPlayer(i, numOfPlayers, previousWasFoothold);
         }
     }
 
-    private boolean tryAppendFootholdIfNotLastPlayer(int currentPlayerIndex, int totalPlayers, boolean previousWasFoothold) {
+    private boolean AppendFootholdIfNotLastPlayer(int currentPlayerIndex, int totalPlayers, boolean previousWasFoothold) {
         if (isNotLastPlayer(currentPlayerIndex, totalPlayers)) {
-            return tryAppendFootholdReturningSuccess(previousWasFoothold);
+            return appendFoothold(previousWasFoothold);
         }
 
         return previousWasFoothold;
@@ -50,16 +49,21 @@ public class Line {
         return currentIndex < totalPlayers - LAST_PLAYER_OFFSET;
     }
 
-    private boolean tryAppendFootholdReturningSuccess(boolean hasPreviousFoothold) {
-        if (!hasPreviousFoothold && footholdGenerator.generate()) {
-            currentLadderLine(FOOTHOLD);
+    private boolean appendFoothold(boolean hasPreviousFoothold) {
+        boolean isFootholdAppended = false;
 
-            return true;
+        if (canAppendFoothold(hasPreviousFoothold)) {
+            currentLadderLine(FOOTHOLD);
+            isFootholdAppended = true;
         }
 
        currentLadderLine(BLANK);
 
-        return false;
+        return isFootholdAppended;
+    }
+
+    private boolean canAppendFoothold(boolean hasPreviousFoothold) {
+        return !hasPreviousFoothold && footholdGenerator.generate();
     }
 
     private void currentLadderLine(String ladderSymbol) {
