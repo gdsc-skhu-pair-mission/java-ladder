@@ -7,12 +7,12 @@ public class OutputView {
 
 
 
-    public void printResultSentence(StringBuilder ladder, List<String> playerNames) {
+    public void printResultSentence(String ladderResult, List<String> playerNames) {
         System.out.println("실행결과");
 
         printPlayerNames(playerNames);
 
-        System.out.println(ladder);
+        System.out.println(ladderResult);
     }
 
     public void printPlayerNames(List<String> playerNames) {

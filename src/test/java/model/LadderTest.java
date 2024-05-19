@@ -26,7 +26,7 @@ class LadderTest {
     @DisplayName("makeLines 메소드가 정상적으로 작동하는지 테스트 합니다.")
     void Test_MakeLines_Operation() {
 
-        ladder.makeLines(height, players);
+        ladder.generateLadder(height, players);
 
         String[] lines = ladder.getLines().toString().split("\n");
 

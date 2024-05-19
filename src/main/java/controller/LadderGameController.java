@@ -26,9 +26,9 @@ public class LadderGameController {
         Players players = createPlayersFromInput();
         List<String> playerNames = extractPlayerNames(players);
         Height height = createHeightFromInput();
-        Ladder ladder = createLadder(players, height);
+        String ladderResult = createLadder(players, height);
 
-        outputView.printResultSentence(ladder.getLines(), playerNames);
+        outputView.printResultSentence(ladderResult, playerNames);
     }
 
     private Players createPlayersFromInput() throws IOException {
@@ -47,11 +47,9 @@ public class LadderGameController {
         return new Height(inputView.readLadderHeightNumber());
     }
 
-    private Ladder createLadder(Players players, Height height) {
+    private String createLadder(Players players, Height height) {
         Ladder ladder = new Ladder();
 
-        ladder.makeLines(height, players);
-
-        return ladder;
+        return ladder.generateLadder(height, players);
     }
 }
