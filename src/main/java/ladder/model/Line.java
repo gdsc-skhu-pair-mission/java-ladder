@@ -8,23 +8,29 @@ public class Line {
 
     private List<Boolean> points;
 
-    public Line (List<Boolean> randomColumn) {
+    public Line(List<Boolean> randomColumn) {
         this.points = randomColumn;
-        rearrange(points);
+        resetConsecutiveDuplicates();
     }
 
     public List<Boolean> getPoints() {
         return points;
     }
 
-    private void rearrange(List<Boolean> columns) {
+    private void resetConsecutiveDuplicates() {
+        if (points.isEmpty()) return;
         boolean previousColumn = false;
-        for (int i = 0; i < columns.size(); i++) {
-            boolean currentColum = columns.get(i);
-            if (previousColumn == currentColum){
-                columns.set(i, false);
-            }
-            previousColumn = currentColum;
+        for (int i = 0; i < points.size(); i++) {
+            points.set(i, updateColumnBasedOnPrevious(i, previousColumn));
+            previousColumn = points.get(i);
         }
+    }
+
+    private boolean updateColumnBasedOnPrevious(int index, boolean previousColumn) {
+        boolean currentColumn = points.get(index);
+        if (previousColumn == currentColumn) {
+            return false;
+        }
+        return currentColumn;
     }
 }
