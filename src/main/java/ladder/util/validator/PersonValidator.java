@@ -1,9 +1,6 @@
 package ladder.util.validator;
 
-import static ladder.util.ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT;
-import static ladder.util.ErrorMessage.INPUT_STRING_BLANK;
-import static ladder.util.ErrorMessage.INPUT_STRING_DUPLICATE;
-import static ladder.util.ErrorMessage.INPUT_STRING_NOT_NULL;
+import ladder.view.ErrorMessageView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,25 +16,25 @@ public class PersonValidator {
 
     public static void checkOverRange(String input) {
         if (isOverRange(input) || isUnderRange(input)) {
-            throw new IllegalArgumentException(INPUT_PERSON_NAME_IS_INCORRECT.message);
+            throw new IllegalArgumentException(ErrorMessageView.ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT.getMessage());
         }
     }
 
     public static void checkSpace(String input) {
         if (isSpace(input)) {
-            throw new IllegalArgumentException(INPUT_STRING_BLANK.message);
+            throw new IllegalArgumentException(ErrorMessageView.ErrorMessage.INPUT_STRING_BLANK.getMessage());
         }
     }
 
     public static void checkEmpty(String input) {
         if (input == null) {
-            throw new IllegalArgumentException(INPUT_STRING_NOT_NULL.message);
+            throw new IllegalArgumentException(ErrorMessageView.ErrorMessage.INPUT_STRING_NOT_NULL.getMessage());
         }
     }
 
     public static void checkDuplicate(String input) {
         if (hasDuplicatePersonName(input)) {
-            throw new IllegalArgumentException(INPUT_STRING_DUPLICATE.message);
+            throw new IllegalArgumentException(ErrorMessageView.ErrorMessage.INPUT_STRING_DUPLICATE.getMessage());
         }
     }
 
@@ -55,7 +52,7 @@ public class PersonValidator {
 
     private static boolean hasDuplicatePersonName(String input) {
         List<String> allPersonNames = new ArrayList<>(Arrays.asList(input.split(",")));
-        Set set = new HashSet(allPersonNames);
+        Set<String> set = new HashSet<>(allPersonNames);
 
         return allPersonNames.size() != set.size();
     }

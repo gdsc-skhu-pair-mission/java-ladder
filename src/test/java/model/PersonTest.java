@@ -1,14 +1,10 @@
 package model;
 
-import static ladder.util.ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT;
-import static ladder.util.ErrorMessage.INPUT_STRING_BLANK;
-import static ladder.util.ErrorMessage.INPUT_STRING_DUPLICATE;
-import static ladder.util.ErrorMessage.INPUT_STRING_NOT_NULL;
-
 import ladder.util.validator.PersonValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import static ladder.view.ErrorMessageView.ErrorMessage;
 
 class PersonTest {
 
@@ -18,7 +14,7 @@ class PersonTest {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             PersonValidator.checkOverRange("5글자이상이름");
         });
-        Assertions.assertEquals(INPUT_PERSON_NAME_IS_INCORRECT.message, exception.getMessage());
+        Assertions.assertEquals(ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT.getMessage(), exception.getMessage()); // 수정된 부분
     }
 
     @Test
@@ -27,7 +23,7 @@ class PersonTest {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             PersonValidator.checkSpace(" ");
         });
-        Assertions.assertEquals(INPUT_STRING_BLANK.message, exception.getMessage());
+        Assertions.assertEquals(ErrorMessage.INPUT_STRING_BLANK.getMessage(), exception.getMessage()); // 수정된 부분
     }
 
     @Test
@@ -36,7 +32,7 @@ class PersonTest {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             PersonValidator.checkEmpty(null);
         });
-        Assertions.assertEquals(INPUT_STRING_NOT_NULL.message, exception.getMessage());
+        Assertions.assertEquals(ErrorMessage.INPUT_STRING_NOT_NULL.getMessage(), exception.getMessage()); // 수정된 부분
     }
 
     @Test
@@ -45,6 +41,6 @@ class PersonTest {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             PersonValidator.checkDuplicate("소정,소정");
         });
-        Assertions.assertEquals(INPUT_STRING_DUPLICATE.message, exception.getMessage());
+        Assertions.assertEquals(ErrorMessage.INPUT_STRING_DUPLICATE.getMessage(), exception.getMessage()); // 수정된 부분
     }
 }
