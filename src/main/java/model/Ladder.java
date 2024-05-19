@@ -4,7 +4,6 @@ import util.RandomFootholdGenerator;
 
 public class Ladder {
     private Lines lines;
-    private Players players;
 
     public Ladder() {
         this.lines = new Lines();
