@@ -3,19 +3,20 @@ package model;
 import util.RandomFootholdGenerator;
 
 public class Ladder {
-    private Line line;
+    private Lines lines;
+    private Players players;
 
     public Ladder() {
-        this.line = new Line(new RandomFootholdGenerator());
+        this.lines = new Lines();
     }
 
-    public String generateLadder(Height height, Players players) {
-        StringBuilder localLines = new StringBuilder();
+    public Lines generateLadder(Height height, int size) {
         for (int i = 0; i < Integer.parseInt(height.getHeight()); i++) {
-            line.makeLine(players);
-            localLines.append(line.getLine()).append("\n");
+            Line line = new Line(new RandomFootholdGenerator(), size);
+            line.makeLine();
+            lines.addLine(line);
         }
 
-        return localLines.toString();
+        return lines;
     }
 }

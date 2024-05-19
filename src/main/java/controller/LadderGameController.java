@@ -2,6 +2,7 @@ package controller;
 
 import model.Height;
 import model.Ladder;
+import model.Lines;
 import model.Player;
 import model.Players;
 import util.RandomFootholdGenerator;
@@ -26,9 +27,10 @@ public class LadderGameController {
         Players players = createPlayersFromInput();
         List<String> playerNames = extractPlayerNames(players);
         Height height = createHeightFromInput();
-        String ladderResult = createLadder(players, height);
+        Lines ladderLines = createLadder(height, players);
 
-        outputView.printResultSentence(ladderResult, playerNames);
+        List<List<Boolean>> linesStructure = ladderLines.toBooleanList();
+        outputView.printResultSentence(linesStructure, playerNames);
     }
 
     private Players createPlayersFromInput() throws IOException {
@@ -47,9 +49,9 @@ public class LadderGameController {
         return new Height(inputView.readLadderHeightNumber());
     }
 
-    private String createLadder(Players players, Height height) {
+    private Lines createLadder(Height height, Players players) {
         Ladder ladder = new Ladder();
 
-        return ladder.generateLadder(height, players);
+        return ladder.generateLadder(height, players.findNumberOfPlayers() - 1);
     }
 }

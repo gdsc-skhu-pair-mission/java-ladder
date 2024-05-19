@@ -1,7 +1,6 @@
-package model;
+package view;
 
-
-public enum LadderSymbol {
+public enum LadderView {
 
     BLANK("     "),
     FOOTHOLD("-----"),
@@ -9,7 +8,7 @@ public enum LadderSymbol {
 
     private final String symbol;
 
-    LadderSymbol(final String symbol) {
+    LadderView(final String symbol) {
         this.symbol = symbol;
     }
 

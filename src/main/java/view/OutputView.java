@@ -3,33 +3,38 @@ package view;
 import java.util.List;
 
 public class OutputView {
-    private final static int NAME_WIDTH = 5;
 
-
-
-    public void printResultSentence(String ladderResult, List<String> playerNames) {
+    public void printResultSentence(List<List<Boolean>> lines, List<String> playerNames) {
         System.out.println("실행결과");
-
         printPlayerNames(playerNames);
-
-        System.out.println(ladderResult);
+        printLadder(lines);
     }
 
-    public void printPlayerNames(List<String> playerNames) {
-        StringBuilder builder = new StringBuilder();
-
-        for (String name : playerNames) {
-            String formattedName = formatName(name, NAME_WIDTH);
-            builder.append(formattedName).append(" ");
-        }
-
-        System.out.println(builder);
+    private void printPlayerNames(List<String> playerNames) {
+        playerNames.forEach(name -> System.out.printf("%-6s", name));
+        System.out.println();
     }
 
-    private String formatName(String name, int width) {
-        if (name.length() > width) {
-            return name.substring(0, width);
+    private void printLadder(List<List<Boolean>> lines) {
+        lines.forEach(line -> {
+            printLine(line);
+            System.out.println("|");
+        });
+    }
+
+    private void printLine(List<Boolean> line) {
+        for (int i = 0; i < line.size(); i++) {
+            System.out.print("|");
+            printFoothold(line, i);
         }
-        return String.format("%" + width + "s", name);
+    }
+
+    private void printFoothold(List<Boolean> line, int index) {
+        if (index < line.size() && line.get(index)) {
+            System.out.print("-----");
+            return;
+        }
+
+        System.out.print("     ");
     }
 }
