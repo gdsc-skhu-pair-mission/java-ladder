@@ -32,7 +32,7 @@ public class LadderGameController {
     }
 
     private Players createPlayersFromInput() throws IOException {
-        String[] playerNamesArray = inputView.readPlayerNames().split(",");
+        String[] playerNamesArray = inputView.readPlayerNames();
 
         return new Players(Arrays.asList(playerNamesArray));
     }
