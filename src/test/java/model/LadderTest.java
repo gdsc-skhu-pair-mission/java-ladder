@@ -2,6 +2,7 @@ package model;
 
 import static ladder.util.ErrorMessage.INPUT_LADDER_NUMBER;
 import static ladder.util.ErrorMessage.INPUT_STRING_NOT_NULL;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import ladder.util.validator.LadderValidator;
 import org.junit.jupiter.api.Assertions;
@@ -12,13 +13,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class LadderTest {
 
+
+
     @Test
     @DisplayName("사다리 null일 때 예외 처리 테스트")
     void should_ThrowException_When_IsLadderNumberNull() {
-        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
-            LadderValidator.checkEmpty(null);
-        });
-        Assertions.assertEquals(INPUT_STRING_NOT_NULL.message, exception.getMessage());
+        assertThatThrownBy(() -> LadderValidator.checkEmpty(null))
+                .isInstanceOf(RuntimeException.class)
+                .hasMessage(INPUT_STRING_NOT_NULL.message);
     }
 
     @ParameterizedTest
