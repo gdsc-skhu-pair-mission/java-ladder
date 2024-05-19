@@ -6,11 +6,11 @@ import java.util.Collections;
 import java.util.List;
 import ladder.util.validator.PersonValidator;
 
-public class PersonList {
+public class Persons {
 
     private List<Person> people = new ArrayList<>();
 
-    public PersonList(String nameList) {
+    public Persons(String nameList) {
         PersonValidator.checkDuplicate(nameList);
         personNameInput(nameList);
     }

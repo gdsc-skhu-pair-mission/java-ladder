@@ -3,11 +3,11 @@ package model;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import ladder.model.ManipulationPeople;
-import ladder.model.PersonList;
+import ladder.model.Persons;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class PersonListTest {
+class PersonsTest {
 
     @Test
     @DisplayName("입력 받은 이름을 쉼표 기준으로 분리시켜 PersonList에 넣기")
@@ -16,7 +16,7 @@ class PersonListTest {
         String peopleName = "소정,예은,GDSC";
 
         // when
-        PersonList personList = new PersonList(peopleName);
+        Persons personList = new Persons(peopleName);
 
         // then
         assertThat(personList.getPeople())
@@ -29,7 +29,7 @@ class PersonListTest {
     void should_ManipulateNames_When_InputNames() {
         // given
         String peopleName = "gdsc,소정,예은,water,a";
-        PersonList personList = new PersonList(peopleName);
+        Persons personList = new Persons(peopleName);
 
         // when
         ManipulationPeople manipulationPeople = new ManipulationPeople(personList.getPeople());
