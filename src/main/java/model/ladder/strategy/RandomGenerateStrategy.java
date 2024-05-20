@@ -34,7 +34,7 @@ public class RandomGenerateStrategy implements GenerateStrategy {
         return decideBridgeConnection();
     }
 
-    private static boolean wasPreviousBridgeConnected(List<Boolean> bridges, int currentIndex) {
+    private boolean wasPreviousBridgeConnected(List<Boolean> bridges, int currentIndex) {
         if (currentIndex == 0) {
             return false;
         }
