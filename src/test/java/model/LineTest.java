@@ -21,12 +21,14 @@ public class LineTest {
     @Test
     void makeLineWithNotFoothold() {
         TestFootholdGenerator generator = new TestFootholdGenerator(false);
-        Line line = new Line(generator);
-        Players players = new Players(Arrays.asList("a", "bb", "ccc", "dddd"));
 
-        line.makeLine(players);
+        int size = 5;
+        Line line = new Line(generator, size);
 
-        assertEquals("     |     |     |     |", line.getLine().toString());
+        line.makeLine();
+
+        boolean[] result = new boolean[size];
+        assertArrayEquals(result, line.getLine());
     }
 
     @Test
