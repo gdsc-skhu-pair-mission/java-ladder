@@ -21,7 +21,7 @@ class LadderTest {
 
     @Test
     @DisplayName("generateLadder 메소드가 정상적으로 작동하는지 테스트 합니다.")
-    void TEST_generateLadder_OPERATION() {
+    void generateLadderTest() {
 
         int size = 5;
         Lines lines = ladder.generateLadder(height, size);

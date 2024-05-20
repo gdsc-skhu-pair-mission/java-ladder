@@ -10,7 +10,7 @@ class HeightTest {
 
     @Test
     @DisplayName("객체 생성 테스트")
-    void Height_Object_Create_Success() {
+    void heightObjectCreateTest() {
 
         String inputHeight = "5";
 
