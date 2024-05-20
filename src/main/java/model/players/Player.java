@@ -6,17 +6,21 @@ public class Player {
     private final String name;
 
     public Player(String name) {
+        checkPlayerName(name);
+        this.name = name;
+    }
+
+    protected String getName() {
+        return name;
+    }
+
+    private void checkPlayerName(String name) {
         checkNameIsNotNull(name);
         checkNameIsNotEmpty(name);
         checkNameLength(name);
         checkNameIsNotNumber(name);
         checkNameIsNotKorean(name);
         checkNameIsNotSpecialCharacter(name);
-        this.name = name;
-    }
-
-    protected String getName() {
-        return name;
     }
 
     private void checkNameIsNotNull(String name) {
