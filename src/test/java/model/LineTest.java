@@ -32,14 +32,20 @@ public class LineTest {
     }
 
     @Test
+    @DisplayName("Foothold가 있는 라인 생성 테스트")
     void makeLineWithFoothold() {
         TestFootholdGenerator generator = new TestFootholdGenerator(true);
-        Line line = new Line(generator);
-        Players players = new Players(Arrays.asList("a", "bb", "ccc", "dddd"));
+        int size = 5;
+        Line line = new Line(generator, size);
 
-        line.makeLine(players);
+        line.makeLine();
 
-        assertEquals("     |-----|     |-----|", line.getLine().toString());
+        boolean[] result = new boolean[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = true;
+        }
+
+        assertArrayEquals(result, line.getLine());
     }
 
     @Test
