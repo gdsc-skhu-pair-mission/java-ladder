@@ -17,18 +17,21 @@ class LadderHeightValidatorTest {
     @Test
     void ladderHeightValidator_정수가_아닌_입력() {
         String ladderHeight = "abc";
-        assertThrows(LadderGameValidationException.NotNumericException.class, () -> LadderHeightValidator.validateLadderHeightNumberIsCorrect(ladderHeight));
+        assertThrows(LadderGameValidationException.NotNumericException.class,
+                () -> LadderHeightValidator.validateLadderHeightNumberIsCorrect(ladderHeight));
     }
 
     @Test
     void ladderHeightValidator_음수_입력() {
         String ladderHeight = "-1";
-        assertThrows(LadderGameValidationException.NotNaturalNumberException.class, () -> LadderHeightValidator.validateLadderHeightNumberIsCorrect(ladderHeight));
+        assertThrows(LadderGameValidationException.NotNaturalNumberException.class,
+                () -> LadderHeightValidator.validateLadderHeightNumberIsCorrect(ladderHeight));
     }
 
     @Test
     void ladderHeightValidator_공백_입력() {
         String ladderHeight = "";
-        assertThrows(LadderGameValidationException.NotAllowEmptyInputException.class, () -> LadderHeightValidator.validateLadderHeightNumberIsCorrect(ladderHeight));
+        assertThrows(LadderGameValidationException.NotAllowEmptyInputException.class,
+                () -> LadderHeightValidator.validateLadderHeightNumberIsCorrect(ladderHeight));
     }
 }
