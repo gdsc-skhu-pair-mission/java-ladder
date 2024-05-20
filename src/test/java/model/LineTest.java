@@ -14,9 +14,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LineTest {
-    private Line line;
-    private Players players;
-    private Height height;
 
     @Test
     void makeLineWithNotFoothold() {
@@ -51,16 +48,9 @@ public class LineTest {
     @Test
     @DisplayName("정상적으로 라인 객체 생성")
     void Line_Object_Create_Success_Test() {
+        int size = 5;
+        Line line = new Line(new RandomFootholdGenerator(), size);
 
-        // given
-        line = new Line(new RandomFootholdGenerator());
-        players = new Players(Arrays.asList("a", "bb", "ccc", "dddd", "eeeee"));
-        height = new Height("5");
-
-        // when
-        line.makeLine(players);
-
-        // then
-        assertThat(line).isNotNull();
+        assertNotNull(line);
     }
 }
