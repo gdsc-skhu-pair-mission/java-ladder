@@ -18,6 +18,10 @@ public class Lines {
                 .collect(Collectors.toList());
     }
 
+    public List<Line> getLines() {
+        return lines;
+    }
+
     private List<Boolean> convertLineToBooleanList(Line line) {
         boolean[] points = line.getLine();
         return convertArrayToBooleanList(points);
