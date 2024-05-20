@@ -31,13 +31,9 @@ public class Players {
     }
 
     private void checkPlayersIsNotDuplicate(List<String> playerNames) {
-        playerNames.stream()
-                .collect(Collectors.groupingBy(name -> name, Collectors.counting()))
-                .forEach((name, count) -> {
-                    if (count > 1) {
-                        throw new IllegalArgumentException("중복된 플레이어가 존재합니다.");
-                    }
-                });
+        if (playerNames.size() != playerNames.stream().distinct().count()) {
+            throw new IllegalArgumentException("중복된 플레이어가 존재합니다.");
+        }
     }
 
     private List<Player> generatePlayers(List<String> playerNames) {
