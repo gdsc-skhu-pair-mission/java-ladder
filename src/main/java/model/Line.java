@@ -17,7 +17,7 @@ public class Line {
 
     public void makeLine() {
         for (int i = INITIAL_INDEX; i < line.length; i++) {
-            if (tryToPlaceFootholdAt(i)) return;
+            tryToPlaceFootholdAt(i);
         }
     }
 
