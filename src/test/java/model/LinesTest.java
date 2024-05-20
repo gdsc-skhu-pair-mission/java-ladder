@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import util.FootholdGenerator;
 import util.TestFootholdGenerator;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LinesTest {
@@ -24,5 +26,23 @@ class LinesTest {
         lines.addLine(line2);
 
         assertEquals(2, lines.getLines().size());
+    }
+
+    @Test
+    @DisplayName("Lines의 Line을 boolean 리스트로 변환을 테스트 합니다.")
+    void convertLinesToBooleanArrayTest() {
+        FootholdGenerator footholdGenerator = new TestFootholdGenerator(true);
+
+        Line line = new Line(footholdGenerator, 3);
+        line.makeLine();
+
+        Lines lines = new Lines();
+        lines.addLine(line);
+
+        List<List<Boolean>> result = lines.toBooleanList();
+
+        List<Boolean> expected = List.of(true, true, true);
+
+        assertEquals(expected, result.get(0));
     }
 }
