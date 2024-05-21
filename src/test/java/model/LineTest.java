@@ -3,7 +3,6 @@ package model;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import ladder.model.Line;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +13,7 @@ class LineTest {
     @DisplayName("사다리 가로라인(Line)을 겹치지 않게 생성하는 메소드 테스트")
     void should_ReraangeLadderLine_When_DuplicateTrue() {
         // given
-        List<Boolean> points = Arrays.asList(true, true, true, true, true);
+        List<Boolean> points = new ArrayList<>(List.of(true, true, true, true, true));
 
         // when
         Line line = new Line(points);
