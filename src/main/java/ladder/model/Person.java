@@ -6,7 +6,7 @@ import static ladder.util.validator.PersonValidator.checkSpace;
 
 public class Person {
 
-    private String name;
+    private final String name;
 
     public Person(String name) {
         checkEmpty(name);

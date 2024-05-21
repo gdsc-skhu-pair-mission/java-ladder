@@ -5,6 +5,7 @@
 - [x] 함수명을 복수형으로 변경하기
 - [x] hasDuplicatePersonName() 메소드 내부 stream으로 변경
 - [x] 랜덤 클래스를 메소드로 변경(사용하는 클래스 안으로)
+- [x] PersonListTest, 랜덤한 값에 대해서 테스트 작성
 
 ---
 ## 기능 구현 목록

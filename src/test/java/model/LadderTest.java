@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class LadderTest {
+class LadderTest {
 
     @Test
     @DisplayName("사다리 null일 때 예외 처리 테스트")

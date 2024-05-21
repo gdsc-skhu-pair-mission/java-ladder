@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class LadderMaker {
 
-    private int ladderHeight;
+    private final int ladderHeight;
 
     public LadderMaker(String ladderHeight) {
         checkEmpty(ladderHeight);

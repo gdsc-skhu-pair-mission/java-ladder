@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Line {
 
-    private List<Boolean> points;
+    private final List<Boolean> points;
 
-    public Line (List<Boolean> randomColumn) {
+    public Line(List<Boolean> randomColumn) {
         this.points = randomColumn;
         rearrange(points);
     }
@@ -19,7 +19,7 @@ public class Line {
         boolean previousColumn = false;
         for (int i = 0; i < columns.size(); i++) {
             boolean currentColum = columns.get(i);
-            if (previousColumn == currentColum){
+            if (previousColumn == currentColum) {
                 columns.set(i, false);
             }
             previousColumn = currentColum;
