@@ -7,40 +7,43 @@ public class OutputView {
     private static final String VERTICAL_DELIMITER = "|";
     private static final String SPACE = "     ";
 
-    public static void printResult(List<String> names, List<List<Boolean>> ladderInformation) {
-        System.out.println("사다리 결과");
-        System.out.println();
-        printPlayers(names);
-        printLadder(ladderInformation);
+    public static void printResult(List<String> names, List<List<Boolean>> ladderShape) {
+        StringBuilder outputBuffer = new StringBuilder();
+
+        outputBuffer.append("사다리 결과\n\n");
+        printPlayers(names, outputBuffer);
+        printLadder(ladderShape, outputBuffer);
+
+        System.out.print(outputBuffer);
     }
 
-    private static void printPlayers(List<String> names) {
-        names.forEach(name -> System.out.printf("%6s", name));
-        System.out.println();
+    private static void printPlayers(List<String> names, StringBuilder outputBuffer) {
+        names.forEach(name -> outputBuffer.append(String.format("%6s", name)));
+        outputBuffer.append("\n");
     }
 
-    private static void printLadder(List<List<Boolean>> ladderInformation) {
-        for (List<Boolean> lineInformation : ladderInformation) {
-            printLine(lineInformation);
+    private static void printLadder(List<List<Boolean>> ladderShape, StringBuilder outputBuffer) {
+        for (List<Boolean> lineShape : ladderShape) {
+            printLine(lineShape, outputBuffer);
         }
     }
 
-    private static void printLine(List<Boolean> lineInformation) {
-        System.out.print(SPACE);
-        System.out.print(VERTICAL_DELIMITER);
-        for (boolean isHorizon : lineInformation) {
-            printBridge(isHorizon);
+    private static void printLine(List<Boolean> lineShape, StringBuilder outputBuffer) {
+        outputBuffer.append(SPACE);
+        outputBuffer.append(VERTICAL_DELIMITER);
+        for (boolean isExist : lineShape) {
+            printBridge(isExist, outputBuffer);
         }
-        System.out.println();
+        outputBuffer.append("\n");
     }
 
-    private static void printBridge(boolean isHorizon) {
-        if (isHorizon) {
-            System.out.print(HORIZON_DELIMITER);
-            System.out.print(VERTICAL_DELIMITER);
+    private static void printBridge(boolean isExist, StringBuilder outputBuffer) {
+        if (isExist) {
+            outputBuffer.append(HORIZON_DELIMITER);
+            outputBuffer.append(VERTICAL_DELIMITER);
             return;
         }
-        System.out.print(SPACE);
-        System.out.print(VERTICAL_DELIMITER);
+        outputBuffer.append(SPACE);
+        outputBuffer.append(VERTICAL_DELIMITER);
     }
 }
