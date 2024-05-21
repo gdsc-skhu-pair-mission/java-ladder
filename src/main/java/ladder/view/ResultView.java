@@ -6,6 +6,8 @@ public class ResultView {
 
     private static final int MAX_NAME_DIGIT = 5;
     private static final int SPACE_REDUCTION = 2;
+    private static final String ONLY_VERTICAL_LINE = "     |";
+    private static final String CONTAIN_PRINT_HORIZONTAL_LINE = "-----|";
 
     public void startMessage() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
@@ -36,11 +38,11 @@ public class ResultView {
 
         for (boolean elementLine : lines) {
             if (elementLine) {
-                lineBuilder.append(containPrintHorizontalLine());
+                lineBuilder.append(CONTAIN_PRINT_HORIZONTAL_LINE);
             }
 
             if (!elementLine) {
-                lineBuilder.append(onlyVerticalLine());
+                lineBuilder.append(ONLY_VERTICAL_LINE);
             }
         }
         System.out.println(lineBuilder);
@@ -56,13 +58,5 @@ public class ResultView {
         }
         firstNameBuilder.append("|");
         return firstNameBuilder.toString();
-    }
-
-    private String onlyVerticalLine() {
-        return "     |";
-    }
-
-    private String containPrintHorizontalLine() {
-        return "-----|";
     }
 }
