@@ -22,7 +22,7 @@ public class LadderController {
 
     public void start() {
         resultView.startMessage();
-        this.manipulationPeople = new ManipulationPeople(new PersonList(inputView.inputName()).getPeople());
+        this.manipulationPeople = new ManipulationPeople(new PersonList(inputView.inputNames()).getPeople());
 
         resultView.ladderHeightMessage();
         this.ladderMaker = new LadderMaker(inputView.inputLadderHeight());
