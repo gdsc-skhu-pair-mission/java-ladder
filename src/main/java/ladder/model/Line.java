@@ -4,8 +4,6 @@ import java.util.List;
 
 public class Line {
 
-    private RandomBoolean randomBoolean = new RandomBoolean();
-
     private List<Boolean> points;
 
     public Line (List<Boolean> randomColumn) {
