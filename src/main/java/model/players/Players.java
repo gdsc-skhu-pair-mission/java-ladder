@@ -1,7 +1,8 @@
 package model.players;
 
+import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 public class Players {
     private static final int MINIMUM_ALLOWED_LENGTH = 2;
@@ -31,13 +32,12 @@ public class Players {
     }
 
     private void checkPlayersIsNotDuplicate(List<String> playerNames) {
-        playerNames.stream()
-                .collect(Collectors.groupingBy(name -> name, Collectors.counting()))
-                .forEach((name, count) -> {
-                    if (count > 1) {
-                        throw new IllegalArgumentException("중복된 플레이어가 존재합니다.");
-                    }
-                });
+        Set<String> uniqueNames = new HashSet<>();
+        for (String name : playerNames) {
+            if (!uniqueNames.add(name)) {
+                throw new IllegalArgumentException("중복된 플레이어가 존재합니다: " + name);
+            }
+        }
     }
 
     private List<Player> generatePlayers(List<String> playerNames) {
