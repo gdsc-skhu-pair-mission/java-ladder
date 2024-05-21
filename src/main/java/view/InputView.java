@@ -3,7 +3,6 @@ package view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
@@ -14,7 +13,7 @@ public class InputView {
         try {
             String input = reader.readLine();
             String removedInput = removeBlank(input);
-            return split(removedInput);
+            return List.of(removedInput.split(","));
         } catch (IOException e) {
             throw new IllegalArgumentException("비정상적인 입력입니다. 다시 입력해주세요.");
         }
@@ -24,7 +23,8 @@ public class InputView {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         try {
             String input = reader.readLine();
-            return Integer.parseInt(input);
+            String removedInput = removeBlank(input);
+            return Integer.parseInt(removedInput);
         } catch (NumberFormatException | IOException e) {
             throw new IllegalArgumentException("높이는 숫자로 입력해주세요.");
         }
@@ -32,9 +32,5 @@ public class InputView {
 
     private static String removeBlank(String input) {
         return input.replaceAll(" ", "");
-    }
-
-    private static List<String> split(String input) {
-        return Arrays.asList(input.split(","));
     }
 }
