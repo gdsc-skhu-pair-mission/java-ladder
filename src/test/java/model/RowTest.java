@@ -1,12 +1,11 @@
 package model;
 
-import static model.ladder.Bridge.EMPTY;
-import static model.ladder.Bridge.EXIST;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import model.ladder.Bridge;
 import model.ladder.Row;
@@ -36,15 +35,22 @@ class RowTest {
     @DisplayName("정해진 다리 생성 전략에 따라 행 객체 생성")
     void should_CreateCorrectSizeRow() {
         // given
-        FixedGenerateStrategy fixedGenerateStrategy = new FixedGenerateStrategy(List.of(true, false, true));
-        List<Bridge> expectedResult = List.of(EXIST, EMPTY, EXIST);
+        int countOfPlayer = 4;
+        List<Boolean> expectedConnection = new ArrayList<>();
+        Random random = new Random();
+        for (int i = 0; i < countOfPlayer - 1; i++) {
+            expectedConnection.add(random.nextBoolean());
+        }
+        FixedGenerateStrategy fixedGenerateStrategy = new FixedGenerateStrategy(expectedConnection);
 
         // when
-        Row row = new Row(4, fixedGenerateStrategy);
-        List<Bridge> actualResult = row.getBridges();
+        Row row = new Row(countOfPlayer, fixedGenerateStrategy);
+        List<Boolean> actualConnection = row.getBridges().stream()
+                .map(Bridge::isExist)
+                .toList();
 
         // then
-        assertNotNull(actualResult);
-        assertEquals(expectedResult, actualResult);
+        assertNotNull(actualConnection);
+        assertEquals(expectedConnection, actualConnection);
     }
 }
