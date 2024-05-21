@@ -53,9 +53,8 @@ public class PersonValidator {
     }
 
     private static boolean hasDuplicatePersonName(String input) {
-        List<String> allPersonNames = new ArrayList<>(Arrays.asList(input.split(",")));
-        Set set = new HashSet(allPersonNames);
-
-        return allPersonNames.size() != set.size();
+        return Arrays.stream(input.split(","))
+                .distinct()
+                .count() != input.split(",").length;
     }
 }

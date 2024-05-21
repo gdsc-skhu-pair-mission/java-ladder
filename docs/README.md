@@ -3,7 +3,7 @@
 - [x] enum을 클래스 변수로 잡고 각 예외 상황에 대한 예외 클래스들로 변경히기
 - [ ] List.of로 변경하기
 - [x] 함수명을 복수형으로 변경하기
-- [ ] hasDuplicatePersonName() 메소드 내부 stream으로 변경
+- [x] hasDuplicatePersonName() 메소드 내부 stream으로 변경
 - [ ] 랜덤 클래스를 메소드로 변경(사용하는 클래스 안으로)
 
 ---
