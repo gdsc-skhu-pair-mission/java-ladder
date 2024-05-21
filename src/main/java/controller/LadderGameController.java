@@ -12,7 +12,7 @@ public class LadderGameController {
         int countOfPlayers = players.countOfPlayers();
         int height = InputView.readHeight();
         Ladder ladder = initLadder(countOfPlayers, height);
-        OutputView.printResult(players.getPlayerNames(), ladder.getLadderInformation());
+        OutputView.printResult(players.getPlayerNames(), ladder.getLadderShape());
     }
 
     private Players initPlayers() {

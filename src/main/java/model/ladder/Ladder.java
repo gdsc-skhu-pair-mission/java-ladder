@@ -23,7 +23,7 @@ public class Ladder {
         return rows.size();
     }
 
-    public List<List<Boolean>> getLadderInformation() {
+    public List<List<Boolean>> getLadderShape() {
         return rows.stream()
                 .map(row -> row.getBridges().stream()
                         .map(Bridge::isExist)
