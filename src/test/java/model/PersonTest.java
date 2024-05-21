@@ -1,10 +1,9 @@
 package model;
 
-import static ladder.util.ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT;
-import static ladder.util.ErrorMessage.INPUT_STRING_BLANK;
-import static ladder.util.ErrorMessage.INPUT_STRING_DUPLICATE;
-import static ladder.util.ErrorMessage.INPUT_STRING_NOT_NULL;
-
+import ladder.util.validator.Exception.InputStringBlankException;
+import ladder.util.validator.Exception.InputStringNullException;
+import ladder.util.validator.Exception.NameDuplicateException;
+import ladder.util.validator.Exception.PersonNameIllegalException;
 import ladder.util.validator.PersonValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -15,36 +14,36 @@ class PersonTest {
     @Test
     @DisplayName("사람 이름 5글자 이상일 때 예외 처리 테스트")
     void should_ThrowException_When_IsPersonNameOverRange() {
-        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
+        PersonNameIllegalException exception = Assertions.assertThrows(PersonNameIllegalException.class, () -> {
             PersonValidator.checkOverRange("5글자이상이름");
         });
-        Assertions.assertEquals(INPUT_PERSON_NAME_IS_INCORRECT.message, exception.getMessage());
+        Assertions.assertEquals("입력한 사람 이름이 올바르지 않습니다.", exception.getErrorMessage());
     }
 
     @Test
     @DisplayName("사람 이름 공백일 때 예외 처리 테스트")
     void should_ThrowException_When_IsPersonNameEmptyAndBlank() {
-        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
+        InputStringBlankException exception = Assertions.assertThrows(InputStringBlankException.class, () -> {
             PersonValidator.checkSpace(" ");
         });
-        Assertions.assertEquals(INPUT_STRING_BLANK.message, exception.getMessage());
+        Assertions.assertEquals("입력 값은 공백이 될 수 없습니다.", exception.getErrorMessage());
     }
 
     @Test
     @DisplayName("사람 이름 null일 때 예외 처리 테스트")
     void should_ThrowException_When_IsPersonNameNull() {
-        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
+        InputStringNullException exception = Assertions.assertThrows(InputStringNullException.class, () -> {
             PersonValidator.checkEmpty(null);
         });
-        Assertions.assertEquals(INPUT_STRING_NOT_NULL.message, exception.getMessage());
+        Assertions.assertEquals("null이 될 수 없습니다.", exception.getErrorMessage());
     }
 
     @Test
     @DisplayName("사람 이름 겹칠 때 예외 처리 테스트")
     void should_ThrowException_When_IsPersonNameDuplicate() {
-        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
+        NameDuplicateException exception = Assertions.assertThrows(NameDuplicateException.class, () -> {
             PersonValidator.checkDuplicate("소정,소정");
         });
-        Assertions.assertEquals(INPUT_STRING_DUPLICATE.message, exception.getMessage());
+        Assertions.assertEquals("입력 값이 중복되었습니다.", exception.getErrorMessage());
     }
 }

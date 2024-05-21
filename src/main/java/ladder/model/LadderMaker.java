@@ -1,15 +1,17 @@
 package ladder.model;
 
+import static ladder.util.validator.LadderValidator.checkEmpty;
+import static ladder.util.validator.LadderValidator.checkLadderNumberStandard;
+
 import java.util.List;
-import ladder.util.validator.LadderValidator;
 
 public class LadderMaker {
 
     private int ladderHeight;
 
     public LadderMaker(String ladderHeight) {
-        LadderValidator.checkEmpty(ladderHeight);
-        LadderValidator.checkLadderNumberStandard(ladderHeight);
+        checkEmpty(ladderHeight);
+        checkLadderNumberStandard(ladderHeight);
 
         this.ladderHeight = Integer.parseInt(ladderHeight);
     }

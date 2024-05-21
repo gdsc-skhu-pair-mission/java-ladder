@@ -1,19 +1,20 @@
 package ladder.util.validator;
 
 import java.util.regex.Pattern;
-import ladder.util.ErrorMessage;
+import ladder.util.validator.Exception.InputStringNullException;
+import ladder.util.validator.Exception.LadderNumberIllegalException;
 
 public class LadderValidator {
 
     public static void checkEmpty(String input) {
         if (input == null) {
-            throw new IllegalArgumentException(ErrorMessage.INPUT_STRING_NOT_NULL.message);
+            throw new InputStringNullException();
         }
     }
 
     public static void checkLadderNumberStandard(String input) {
         if (!isRightLadderNumber(input)) {
-            throw new IllegalArgumentException(ErrorMessage.INPUT_LADDER_NUMBER.message);
+            throw new LadderNumberIllegalException();
         }
     }
 

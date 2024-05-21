@@ -1,17 +1,18 @@
 package ladder.model;
 
+import static ladder.util.validator.PersonValidator.checkDuplicate;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import ladder.util.validator.PersonValidator;
 
 public class PersonList {
 
     private List<Person> people = new ArrayList<>();
 
     public PersonList(String nameList) {
-        PersonValidator.checkDuplicate(nameList);
+        checkDuplicate(nameList);
         personNameInput(nameList);
     }
 

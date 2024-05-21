@@ -1,16 +1,15 @@
 package ladder.util.validator;
 
-import static ladder.util.ErrorMessage.INPUT_PERSON_NAME_IS_INCORRECT;
-import static ladder.util.ErrorMessage.INPUT_STRING_BLANK;
-import static ladder.util.ErrorMessage.INPUT_STRING_DUPLICATE;
-import static ladder.util.ErrorMessage.INPUT_STRING_NOT_NULL;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import ladder.util.validator.Exception.InputStringBlankException;
+import ladder.util.validator.Exception.InputStringNullException;
+import ladder.util.validator.Exception.NameDuplicateException;
+import ladder.util.validator.Exception.PersonNameIllegalException;
 
 public class PersonValidator {
 
@@ -19,25 +18,25 @@ public class PersonValidator {
 
     public static void checkOverRange(String input) {
         if (isOverRange(input) || isUnderRange(input)) {
-            throw new IllegalArgumentException(INPUT_PERSON_NAME_IS_INCORRECT.message);
+            throw new PersonNameIllegalException();
         }
     }
 
     public static void checkSpace(String input) {
         if (isSpace(input)) {
-            throw new IllegalArgumentException(INPUT_STRING_BLANK.message);
+            throw new InputStringBlankException();
         }
     }
 
     public static void checkEmpty(String input) {
         if (input == null) {
-            throw new IllegalArgumentException(INPUT_STRING_NOT_NULL.message);
+            throw new InputStringNullException();
         }
     }
 
     public static void checkDuplicate(String input) {
         if (hasDuplicatePersonName(input)) {
-            throw new IllegalArgumentException(INPUT_STRING_DUPLICATE.message);
+            throw new NameDuplicateException();
         }
     }
 

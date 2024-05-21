@@ -1,15 +1,17 @@
 package ladder.model;
 
-import ladder.util.validator.PersonValidator;
+import static ladder.util.validator.PersonValidator.checkEmpty;
+import static ladder.util.validator.PersonValidator.checkOverRange;
+import static ladder.util.validator.PersonValidator.checkSpace;
 
 public class Person {
 
     private String name;
 
     public Person(String name) {
-        PersonValidator.checkEmpty(name);
-        PersonValidator.checkOverRange(name);
-        PersonValidator.checkSpace(name);
+        checkEmpty(name);
+        checkOverRange(name);
+        checkSpace(name);
         this.name = name;
     }
 
