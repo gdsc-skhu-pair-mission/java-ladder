@@ -24,6 +24,7 @@ public class InputView {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         try {
             String input = reader.readLine();
+            reader.close();
             return Integer.parseInt(input);
         } catch (NumberFormatException | IOException e) {
             throw new IllegalArgumentException("높이는 숫자로 입력해주세요.");
