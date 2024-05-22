@@ -9,10 +9,10 @@ public class OutputView {
 
     private static final StringBuilder output = new StringBuilder();
 
-    public static void printResult(List<String> names, List<List<Boolean>> ladderInformation) {
+    public static void printResult(List<String> names, List<List<Boolean>> ladder) {
         output.append("사다리 결과\n\n");
         printPlayers(names);
-        printLadder(ladderInformation);
+        printLadder(ladder);
 
         System.out.print(output);
     }
@@ -22,9 +22,9 @@ public class OutputView {
         output.append("\n");
     }
 
-    private static void printLadder(List<List<Boolean>> ladderInformation) {
-        for (List<Boolean> lineInformation : ladderInformation) {
-            printLine(lineInformation);
+    private static void printLadder(List<List<Boolean>> ladder) {
+        for (List<Boolean> line : ladder) {
+            printLine(line);
         }
     }
 
