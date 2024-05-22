@@ -7,16 +7,19 @@ public class OutputView {
     private static final String VERTICAL_DELIMITER = "|";
     private static final String SPACE = "     ";
 
+    private static final StringBuilder output = new StringBuilder();
+
     public static void printResult(List<String> names, List<List<Boolean>> ladderInformation) {
-        System.out.println("사다리 결과");
-        System.out.println();
+        output.append("사다리 결과\n\n");
         printPlayers(names);
         printLadder(ladderInformation);
+
+        System.out.print(output);
     }
 
     private static void printPlayers(List<String> names) {
-        names.forEach(name -> System.out.printf("%6s", name));
-        System.out.println();
+        names.forEach(name -> output.append(String.format("%6s", name)));
+        output.append("\n");
     }
 
     private static void printLadder(List<List<Boolean>> ladderInformation) {
@@ -25,22 +28,22 @@ public class OutputView {
         }
     }
 
-    private static void printLine(List<Boolean> lineInformation) {
-        System.out.print(SPACE);
-        System.out.print(VERTICAL_DELIMITER);
-        for (boolean isHorizon : lineInformation) {
+    private static void printLine(List<Boolean> line) {
+        output.append(SPACE);
+        output.append(VERTICAL_DELIMITER);
+        for (boolean isHorizon : line) {
             printBridge(isHorizon);
         }
-        System.out.println();
+        output.append("\n");
     }
 
     private static void printBridge(boolean isHorizon) {
         if (isHorizon) {
-            System.out.print(HORIZON_DELIMITER);
-            System.out.print(VERTICAL_DELIMITER);
+            output.append(HORIZON_DELIMITER);
+            output.append(VERTICAL_DELIMITER);
             return;
         }
-        System.out.print(SPACE);
-        System.out.print(VERTICAL_DELIMITER);
+        output.append(SPACE);
+        output.append(VERTICAL_DELIMITER);
     }
 }
