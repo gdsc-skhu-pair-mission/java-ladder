@@ -6,18 +6,6 @@ import java.util.List;
 
 public class OutputView {
 
-    public String printNamesMessage() {
-        String message = Message.INPUT_HUMAN_NAME.toString();
-        System.out.println(message);
-        return message;
-    }
-
-    public String printHeight() {
-        String message = Message.INPUT_LADDER_HEIGHT.toString();
-        System.out.println(message);
-        return message;
-    }
-
     public String printNames(List<String> names) {
         StringBuilder output = new StringBuilder();
         for (String name : names) {
