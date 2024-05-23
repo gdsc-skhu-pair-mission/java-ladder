@@ -15,10 +15,10 @@ public class OutputViewTest {
     @DisplayName("이름 입력 메시지 출력")
     void should_PrintInputHumanNameMessage() {
         // given
-        OutputView outputView = new OutputView();
+        InputView inputView = new InputView();
 
         // when
-        String message = outputView.printNamesMessage();
+        String message = inputView.printNamesMessage();
 
         // then
         assertThat(message).isEqualTo(Message.INPUT_HUMAN_NAME.toString());
@@ -28,10 +28,10 @@ public class OutputViewTest {
     @DisplayName("사다리 높이 입력 메시지 출력")
     void should_PrintInputLadderHeightMessage() {
         // given
-        OutputView outputView = new OutputView();
+        InputView inputView = new InputView();
 
         // when
-        String message = outputView.printHeight();
+        String message = inputView.printHeight();
 
         // then
         assertThat(message).isEqualTo(Message.INPUT_LADDER_HEIGHT.toString());
