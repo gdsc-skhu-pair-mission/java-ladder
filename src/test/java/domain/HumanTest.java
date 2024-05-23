@@ -1,18 +1,23 @@
 package domain;
 
+import domain.exception.HumanNameException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class HumanTest {
+
     @Test
-    @DisplayName("사람 이름은 5글자까지 부여하면 생성된다.")
-    void createName(){
-        String validName = "pobiaa";
-        assertThatThrownBy(()-> new Human("pobiaa"))
-                .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessage("이름의 길이는 5글자 이하여야 합니다.");
+    @DisplayName("이름이 5글자를 초과할 경우 HumanNameException 예외 발생")
+    void throwHumanNameException() {
+        // given
+        String longName = "가나다라마바";
+
+        // when & then
+        assertThatThrownBy(() -> new Human(longName))
+                .isInstanceOf(HumanNameException.class)
+                .hasMessage("사람 이름은 5글자 이내로 작성해주세요.");
     }
 
 }
