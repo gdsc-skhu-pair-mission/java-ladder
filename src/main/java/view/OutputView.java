@@ -7,7 +7,7 @@ public class OutputView {
     private static final String VERTICAL_DELIMITER = "|";
     private static final String SPACE = "     ";
 
-    private static final StringBuilder output = new StringBuilder();
+    private static final StringBuffer output = new StringBuffer();
 
     public static void printResult(List<String> names, List<List<Boolean>> ladder) {
         output.append("사다리 결과\n\n");
