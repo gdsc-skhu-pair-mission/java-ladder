@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Humans {
     private List<Human> humans;
@@ -16,11 +17,9 @@ public class Humans {
     public List<Human> getHumans(){
         return humans;
     }
-    public List<String> getNames(){
-        List<String> names = new ArrayList<>();
-        for(Human human: humans){
-            names.add(human.getName());
-        }
-        return names;
+    public List<String> getNames() {
+        return humans.stream()
+                .map(Human::getName)
+                .collect(Collectors.toList());
     }
 }
