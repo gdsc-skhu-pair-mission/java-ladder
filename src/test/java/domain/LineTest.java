@@ -13,7 +13,7 @@ public class LineTest {
     @Test
     @DisplayName("라인_랜덤_생성")
     void Line_랜덤_생성(){
-        List<Boolean> points = Arrays.asList(false, true, false);
+        List<Boolean> points = List.of(false, true, false);
 
         // when
         Line line = new Line(3);
