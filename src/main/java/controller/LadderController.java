@@ -36,7 +36,7 @@ public class LadderController {
     }
 
     void createHumans() {
-        outputView.printNamesMessage();
+        inputView.printNamesMessage();
         String[] names = inputView.inputNames();
         List<String> nameList = new ArrayList<>(List.of(names));
         outputView.printNames(nameList);
@@ -47,7 +47,7 @@ public class LadderController {
     }
 
     void createLadderHeight() {
-        outputView.printHeight();
+        inputView.printHeight();
         ladder.setHeight(inputView.inputHeight());
     }
 
