@@ -1,40 +1,71 @@
 package view;
 
-import org.junit.jupiter.api.*;
+import domain.Message;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class OutputViewTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
+    @Test
+    @DisplayName("이름 입력 메시지 출력")
+    void should_PrintInputHumanNameMessage() {
+        // given
+        OutputView outputView = new OutputView();
 
-    @BeforeEach
-    void setUp(){
-        System.setOut(new PrintStream(outContent));
-    }
-    @AfterEach
-    void tearDown(){
-        System.setOut(originalOut);
+        // when
+        String message = outputView.printNamesMessage();
+
+        // then
+        assertThat(message).isEqualTo(Message.INPUT_HUMAN_NAME.toString());
     }
 
     @Test
-    @DisplayName("사람 이름 출력")
-    void printPersonName(){
+    @DisplayName("사다리 높이 입력 메시지 출력")
+    void should_PrintInputLadderHeightMessage() {
         // given
         OutputView outputView = new OutputView();
-        List<String> names = Arrays.asList("pobi", "honux", "crong", "jk");
 
         // when
-        outputView.printNames(names);
+        String message = outputView.printHeight();
 
         // then
-        assertEquals("pobi honux crong jk " , outContent.toString());
+        assertThat(message).isEqualTo(Message.INPUT_LADDER_HEIGHT.toString());
     }
 
+    @Test
+    @DisplayName("참여자 이름 목록 출력")
+    void should_PrintNamesSuccessfully() {
+        // given
+        List<String> names = Arrays.asList("pobi", "crong", "honux", "jk");
+        OutputView outputView = new OutputView();
+
+        // when
+        String result = outputView.printNames(names);
+
+        // then
+        assertThat(result).isEqualTo("pobi crong honux jk");
+    }
+
+    @Test
+    @DisplayName("사다리 구조 출력")
+    void should_PrintLadderSuccessfully() {
+        // given
+        List<List<Boolean>> lines = Arrays.asList(
+                Arrays.asList(true, false, true),
+                Arrays.asList(false, true, false)
+        );
+        OutputView outputView = new OutputView();
+
+        // when
+        String result = outputView.printLadder(lines);
+
+        // then
+        String expectedOutput = "    |-----|     |-----|\n    |     |-----|     |\n";
+        assertThat(result).isEqualTo(expectedOutput);
+    }
 }
