@@ -6,29 +6,39 @@ import java.util.List;
 
 public class OutputView {
 
-
-    public void printNames(){
-        System.out.println(Message.INPUT_HUMAN_NAME);
+    public String printNamesMessage() {
+        String message = Message.INPUT_HUMAN_NAME.toString();
+        System.out.println(message);
+        return message;
     }
 
-    public void printHeight(){
-        System.out.println(Message.INPUT_LADDER_HEIGHT);
+    public String printHeight() {
+        String message = Message.INPUT_LADDER_HEIGHT.toString();
+        System.out.println(message);
+        return message;
     }
 
-    public void printNames(List<String> names){
+    public String printNames(List<String> names) {
+        StringBuilder output = new StringBuilder();
         for (String name : names) {
-            System.out.print(name + Message.SPACE);
+            output.append(name).append(Message.SPACE.toString());
         }
-       // System.out.println();
+        String result = output.toString().trim();
+        System.out.print(result);
+        return result;
     }
 
-    public void printLadder(List<List<Boolean>> lines){
+    public String printLadder(List<List<Boolean>> lines) {
+        StringBuilder output = new StringBuilder();
         for (List<Boolean> line : lines) {
-            System.out.print(Message.FIRST_SPACE);
-            System.out.print(Message.COLUMN);
+            output.append("\n");
+            output.append(Message.FIRST_SPACE.toString()).append(Message.COLUMN.toString());
             for (Boolean point : line) {
-                System.out.print(point ? Message.BRIDGE.toString() + Message.COLUMN.toString() : Message.SPACE.toString().repeat(Message.BRIDGE.toString().length()) + Message.COLUMN);            }
-            System.out.println();
+                output.append(point ? Message.BRIDGE.toString() + Message.COLUMN.toString() : Message.SPACE.toString().repeat(Message.BRIDGE.toString().length()) + Message.COLUMN.toString());
+            }
         }
+        String result = output.toString();
+        System.out.print(result);
+        return result;
     }
 }
