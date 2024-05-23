@@ -8,6 +8,7 @@ import view.InputView;
 import view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LadderController {
@@ -35,8 +36,11 @@ public class LadderController {
     }
 
     void createHumans() {
-        outputView.printNames();
+        outputView.printNamesMessage();
         String[] names = inputView.inputNames();
+        List<String> nameList = new ArrayList<>(List.of(names));
+        outputView.printNames(nameList);
+
         for (String name : names) {
             humans.addHuman(new Human(name));
         }
